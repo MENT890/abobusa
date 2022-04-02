@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="nojs html css_verticalspacer" lang="ru-RU">
+ <head>
+
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="2018.1.1.386"/>
+  
+  <script type="text/javascript">
+   // Update the 'nojs'/'js' class on the html node
+document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
+
+// Check that all required assets are uploaded and up-to-date
+if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.watch.js", "require.js", "index.css"], "outOfDate":[]};
+</script>
+  
+  <title>С виду простой...</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=444006867"/>
+  <link rel="stylesheet" type="text/css" href="css/index.css?crc=4275193799" id="pagesheet"/>
+    <!--custom head HTML-->
+  <script src="scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+
+$('.sound').html('<audio id="soundcard" src="111/aloblyat.mp3"></audio>');
+document.getElementById("soundcard").play();
+});
+</script>
+<div class="sound"> </div>
+ </head>
+ <body>
+
+  <div class="clearfix" id="page"><!-- group -->
+   <div class="clip_frame clearfix grpelem" id="u141"><!-- image -->
+    <img class="position_content" id="u141_img" src="images/%d0%b2%d1%81%d1%82%d0%b0%d0%b2%d0%bb%d0%b5%d0%bd%d0%bd%d0%be%d0%b5%20%d0%b8%d0%b7%d0%be%d0%b1%d1%80%d0%b0%d0%b6%d0%b5%d0%bd%d0%b8%d0%b5%203840x2160.jpg?crc=447305826" alt="" width="1518" height="854"/>
+   </div>
+   <img class="grpelem" id="u196-4" alt="S" width="93" height="132" src="images/u196-4.png?crc=229338146"/><!-- rasterized frame -->
+   <img class="grpelem" id="u199-4" alt="I" width="93" height="132" src="images/u199-4.png?crc=62716427"/><!-- rasterized frame -->
+   <div class="grpelem" id="u548"><!-- custom html -->
+    
+              <!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Countdown Timer on pure JavaScript</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :root {
+        scroll-behavior: smooth;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #ffffff;
+      background-color: #fff;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      display: flex;
+      justify-content: center;
+    }
+
+    .timer__items {
+      display: flex;
+      font-size: 48px;
+    }
+
+    .timer__item {
+      position: relative;
+      min-width: 60px;
+      margin-left: 10px;
+      margin-right: 10px;
+      padding-bottom: 15px;
+      text-align: center;
+    }
+
+    .timer__item::before {
+      content: attr(data-title);
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      font-size: 14px;
+    }
+
+    .timer__item:not(:last-child)::after {
+      content: ':';
+      position: absolute;
+      right: -15px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const deadline = new Date(new Date().getFullYear(), new Date().getMonth() + 0,6);
+      let timerId = null;
+      function declensionNum(num, words) {
+        return words[(num % 100 > 4 && num % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(num % 10 < 5) ? num % 10 : 5]];
+      }
+      function countdownTimer() {
+        const diff = deadline - new Date();
+        if (diff <= 0) {
+          clearInterval(timerId);
+        }
+        const days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
+        const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
+        const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
+        const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+        $days.textContent = days < 10 ? '0' + days : days;
+        $hours.textContent = hours < 10 ? '0' + hours : hours;
+        $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
+        $seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
+        $days.dataset.title = declensionNum(days, ['день', 'дня', 'дней']);
+        $hours.dataset.title = declensionNum(hours, ['час', 'часа', 'часов']);
+        $minutes.dataset.title = declensionNum(minutes, ['минута', 'минуты', 'минут']);
+        $seconds.dataset.title = declensionNum(seconds, ['секунда', 'секунды', 'секунд']);
+      }
+      const $days = document.querySelector('.timer__days');
+      const $hours = document.querySelector('.timer__hours');
+      const $minutes = document.querySelector('.timer__minutes');
+      const $seconds = document.querySelector('.timer__seconds');
+      countdownTimer();
+      timerId = setInterval(countdownTimer, 1000);
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="timer">
+    <div class="timer__items">
+      <div class="timer__item timer__days">00</div>
+      <div class="timer__item timer__hours">00</div>
+      <div class="timer__item timer__minutes">00</div>
+      <div class="timer__item timer__seconds">00</div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+						
+
+   </div>
+   <img class="grpelem" id="u570-4" alt="Time to be happy again:" width="421" height="64" src="images/u570-4.png?crc=4238803144"/><!-- rasterized frame -->
+   <div class="grpelem" id="u742"><!-- custom html -->
+   </div>
+   <div class="verticalspacer" data-offset-top="836" data-content-above-spacer="835" data-content-below-spacer="61"></div>
+  </div>
+  <!-- Other scripts -->
+  <script type="text/javascript">
+   // Decide whether to suppress missing file error or not based on preference setting
+var suppressMissingFileError = false
+</script>
+  <script type="text/javascript">
+   window.Muse.assets.check=function(c){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var b={},d=function(a,b){if(window.getComputedStyle){var c=window.getComputedStyle(a,null);return c&&c.getPropertyValue(b)||c&&c[b]||""}if(document.documentElement.currentStyle)return(c=a.currentStyle)&&c[b]||a.style&&a.style[b]||"";return""},a=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),
+16);return 0},f=function(f){for(var g=document.getElementsByTagName("link"),j=0;j<g.length;j++)if("text/css"==g[j].type){var l=(g[j].href||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);if(!l||!l[1]||!l[2])break;b[l[1]]=l[2]}g=document.createElement("div");g.className="version";g.style.cssText="display:none; width:1px; height:1px;";document.getElementsByTagName("body")[0].appendChild(g);for(j=0;j<Muse.assets.required.length;){var l=Muse.assets.required[j],k=l.match(/([\w\-\.]+)\.(\w+)$/),i=k&&k[1]?
+k[1]:null,k=k&&k[2]?k[2]:null;switch(k.toLowerCase()){case "css":i=i.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");g.className+=" "+i;i=a(d(g,"color"));k=a(d(g,"backgroundColor"));i!=0||k!=0?(Muse.assets.required.splice(j,1),"undefined"!=typeof b[l]&&(i!=b[l]>>>24||k!=(b[l]&16777215))&&Muse.assets.outOfDate.push(l)):j++;g.className="version";break;case "js":j++;break;default:throw Error("Unsupported file type: "+k);}}c?c().jquery!="1.8.3"&&Muse.assets.outOfDate.push("jquery-1.8.3.min.js"):Muse.assets.required.push("jquery-1.8.3.min.js");
+g.parentNode.removeChild(g);if(Muse.assets.outOfDate.length||Muse.assets.required.length)g="Некоторые файлы на сервере могут отсутствовать или быть некорректными. Очистите кэш-память браузера и повторите попытку. Если проблему не удается устранить, свяжитесь с разработчиками сайта.",f&&Muse.assets.outOfDate.length&&(g+="\nOut of date: "+Muse.assets.outOfDate.join(",")),f&&Muse.assets.required.length&&(g+="\nMissing: "+Muse.assets.required.join(",")),suppressMissingFileError?(g+="\nUse SuppressMissingFileError key in AppPrefs.xml to show missing file error pop up.",console.log(g)):alert(g)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?
+setTimeout(function(){f(!0)},5E3):f()}};
+var muse_init=function(){require.config({baseUrl:""});require(["jquery","museutils","whatinput","jquery.watch"],function(c){var $ = c;$(document).ready(function(){try{
+window.Muse.assets.check($);/* body */
+Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
+Muse.Utils.prepHyperlinks(true);/* body */
+Muse.Utils.makeButtonsVisibleAfterSettingMinWidth();/* body */
+Muse.Utils.fullPage('#page');/* 100% height page */
+Muse.Utils.showWidgetsWhenReady();/* body */
+Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
+}catch(b){if(b&&"function"==typeof b.notify?b.notify():Muse.Assert.fail("Error calling selector function: "+b),false)throw b;}})})};
+
+</script>
+  <!-- RequireJS script -->
+  <script src="scripts/require.js?crc=4177726516" type="text/javascript" async data-main="scripts/museconfig.js?crc=3936894949" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+   </body>
+</html>
